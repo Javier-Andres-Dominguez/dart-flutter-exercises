@@ -1,4 +1,4 @@
-# dart-exercises
+# Dart-exercises
 Dart exercises done to learn dart.
 These are my Dart exercises practicing the language.
 To launch them you have to create a [name].json with the following code:

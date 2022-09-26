@@ -1,6 +1,5 @@
 # Dart-exercises
-Dart exercises done to learn dart.
-These are my Dart exercises practicing the language.
+These are my Dart exercises practicing the language. <br>
 To launch them you have to create a [name].json with the following code:
 {
     // Use IntelliSense para saber los atributos posibles.

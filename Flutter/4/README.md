@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
 ```
 <br>
 2ºContenedor.dart<br>
+
 ```dart
 import 'package:flutter/material.dart';
  
@@ -55,3 +56,4 @@ class Contenedor extends StatelessWidget {
  
 }
 ```
+k

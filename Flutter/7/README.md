@@ -1,0 +1,1 @@
+7º Realizar un drawer personalizado, poniendo una imagen que te interese, un nombre adecuado y personalizando los elementos de menú con nombres distintos a los que vienen en el ejemplo y poniendo al menos 5 elementos en el menú.

@@ -1,0 +1,1 @@
+2º Realiza una app en la que incluyamos una fuente de letra, distinta a la utilizada en clase, en el fichero pubspec.yaml y donde pongamos un texto lo suficientemente largo para que desborde el tamaño de nuestro campo de texto y tengamos que ver cómo manejar este desbordamoento.

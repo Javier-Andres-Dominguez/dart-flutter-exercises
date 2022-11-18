@@ -43,8 +43,7 @@ class Contenedor extends StatelessWidget {
   	color: this.color,
 	  width: this.ancho,
   	height: this.alto,
- 
- 
+	
   	child: Center(
     	child: Text( this.texto),
   	),

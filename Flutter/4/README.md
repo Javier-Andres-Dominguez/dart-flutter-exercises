@@ -2,30 +2,30 @@
 Código para usar:<br>
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'ejemplo de iconos',
-        home: Scaffold(
-            appBar: AppBar(
-              title: Center(
-                child: Text('Ejemplo de Container'),
-              ),
-            ),
-            body: Row(children: <Widget>[
-              Container(
-                  width: 120,
-                  color: Colors.cyan,
-                  height: 120,
-                  child: Text('azul')),
-              Container(
-                  width: 120,
-                  color: Colors.lightGreen,
-                  height: 120,
-                  child: Text('verde')),
-            ])));
-  }
-}
+void main() => runApp(MyApp());<br>
+<br>
+class MyApp extends StatelessWidget {<br>
+  @override<br>
+  Widget build(BuildContext context) {<br>
+    return MaterialApp(<br>
+        title: 'ejemplo de iconos',<br>
+        home: Scaffold(<br>
+            appBar: AppBar(<br>
+              title: Center(<br>
+                child: Text('Ejemplo de Container'),<br>
+              ),<br>
+            ),<br>
+            body: Row(children: <Widget>[<br>
+              Container(<br>
+                  width: 120,<br>
+                  color: Colors.cyan,<br>
+                  height: 120,<br>
+                  child: Text('azul')),<br>
+              Container(<br>
+                  width: 120,<br>
+                  color: Colors.lightGreen,<br>
+                  height: 120,<br>
+                  child: Text('verde')),<br>
+            ])));<br>
+  }<br>
+}<br>

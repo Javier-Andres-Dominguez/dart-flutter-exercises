@@ -1,6 +1,7 @@
 4º Respecto al punto 8 : “Contenedores” en la página 39: Realiza las modificaciones al código facilitado con la clase externa respecto a contenedores, para que también podamos pasarle el padding y la alineación que deseemos a cada Container. Realiza las modificaciones tanto en la llamada a la clase como en la propia clase para poder pasarle este parámetro. <br>
 Código para usar:<br>
 1ºMain.dart<br>
+```dart
 import 'package:flutter/material.dart';
 import 'Contenedor.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
             ])));
   }
 }
+```
 <br>
 2ºContenedor.dart<br>
 import 'package:flutter/material.dart';

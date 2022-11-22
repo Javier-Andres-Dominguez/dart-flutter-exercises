@@ -1,1 +1,2 @@
 2º Realiza una app en la que incluyamos una fuente de letra, distinta a la utilizada en clase, en el fichero pubspec.yaml y donde pongamos un texto lo suficientemente largo para que desborde el tamaño de nuestro campo de texto y tengamos que ver cómo manejar este desbordamoento.
+2º Make an app where you include an external font for the letters, different to the ones used in class, you have to write them down  too in the "pubspec.taml" and where you write a text long enougth so it overflows and you have to use different types of Overflows.

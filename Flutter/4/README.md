@@ -1,5 +1,5 @@
-4º Respecto al punto 8 : “Contenedores” en la página 39: Realiza las modificaciones al código facilitado con la clase externa respecto a contenedores, para que también podamos pasarle el padding y la alineación que deseemos a cada Container. Realiza las modificaciones tanto en la llamada a la clase como en la propia clase para poder pasarle este parámetro. <br>
-Código para usar:<br>
+4º Make the code below usefull so you can pass as parameter the Padding and the alignment of each container. Change the man and the external class until  it works.<br>
+Code tu use:<br>
 1ºMain.dart<br>
 ```dart
 import 'package:flutter/material.dart';

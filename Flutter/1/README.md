@@ -1,3 +1,2 @@
-1º Realizar una disposición en pantalla como se muestra en pantalla, la idea es que tenga tres filas con los elementos que se muestran.
-Para realizarla, hay que hacer uso de los widgets Row y Column. También es necesario ser capaz de disponer los elementos en pantalla utilizando crossAxisAlignment.<br>
+1º Make a screen that looks like the image below, the idea is having 3 rows with the elements. To make it you have to use the widgets Row and Column. It is also neccesary being able to align the elements with crossAxisAlignment.<br>
 ![Image](https://github.com/Javier-Andres-Dominguez/dart-flutter-exercises/blob/main/Flutter/1/image.PNG?raw=true)

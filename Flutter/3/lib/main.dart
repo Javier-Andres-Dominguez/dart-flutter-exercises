@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Mi primera aplicación',
+    title: 'Overflow testing',
     home: Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text('Barra superior'),
+          child: Text('Superior Bar'),
         ),
       ),
       body: Container(

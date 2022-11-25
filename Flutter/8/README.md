@@ -1,1 +1,1 @@
-8º Al ejercicio que hemos creado en clase donde hemos realizado nosotros el contador de clics (el mismo ejemplo que crea cuando creamos un proyecto nuevo de flutter), añadir el botón de decrementar el contador y añadir otro que haga una puesta a cero del contador.
+8º Make a click counter and 3 buttons: 1º Increase, 2º Decrease, 3º Reset

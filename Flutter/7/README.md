@@ -1,1 +1,1 @@
-7º Realizar un drawer personalizado, poniendo una imagen que te interese, un nombre adecuado y personalizando los elementos de menú con nombres distintos a los que vienen en el ejemplo y poniendo al menos 5 elementos en el menú.
+7º Make a custom drawe inserting an image, a name and customizating the menu elements with different names (At least 5 elements).

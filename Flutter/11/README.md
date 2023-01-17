@@ -23,7 +23,7 @@ class _RandomColors extends State<RandomColors> {
   int points = 0;
   late String randomName;
   late Color randomColor;
-  var colorNames = ['azul', 'verde', 'naranja', 'rosa', 'rojo', 'amarillo'];
+  var colorNames = ['blue', 'green', 'orange', 'pink', 'red', 'yellow'];
   var colorHex = [
     const Color(0xFF0000FF),
     const Color(0xFF00FF00),
@@ -105,17 +105,17 @@ class _RandomColors extends State<RandomColors> {
  
   String hexToStringConverter(Color hexColor) {
     if (hexColor == const Color(0xFF0000FF)) {
-      return 'azul';
+      return 'blue';
     } else if (hexColor == const Color(0xFF00FF00)) {
-      return 'verde';
+      return 'green';
     } else if (hexColor == const Color(0xFFFF914D)) {
-      return 'naranja';
+      return 'orange';
     } else if (hexColor == const Color(0xFFFF66C4)) {
-      return 'rosa';
+      return 'pink';
     } else if (hexColor == const Color(0xFFFF0000)) {
-      return 'rojo';
+      return 'red';
     } else {
-      return 'amarillo';
+      return 'yellow';
     }
   }
  

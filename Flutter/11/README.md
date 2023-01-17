@@ -59,7 +59,7 @@ class _RandomColors extends State<RandomColors> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Puntos: $points',
+              'Points: $points',
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
             Center(

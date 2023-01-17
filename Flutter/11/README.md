@@ -3,7 +3,7 @@ Modify this game:<br>
 *Adding 2 new colors<br>
 *Modify the time it takes to change the color<br>
 *Add a logical function<br>
-´´´dart
+´´´dart<br>
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';

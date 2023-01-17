@@ -3,7 +3,7 @@ Modify this game:<br>
 *Adding 2 new colors<br>
 *Modify the time it takes to change the color<br>
 *Add a logical function<br>
-´´´dart<br>
+```dart
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
@@ -129,5 +129,4 @@ class _RandomColors extends State<RandomColors> {
     setState(() {});
   }
 }
-
-´´´
+```

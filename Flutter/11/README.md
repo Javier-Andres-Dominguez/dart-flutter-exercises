@@ -1,8 +1,8 @@
 Modify this game:<br>
-*Adding a visual upgrade
-*Adding 2 new colors
-*Modify the time it takes to change the color
-*Add a logical function
+*Adding a visual upgrade<br>
+*Adding 2 new colors<br>
+*Modify the time it takes to change the color<br>
+*Add a logical function<br>
 ´´´dart
 import 'package:flutter/material.dart';
 import 'dart:math';

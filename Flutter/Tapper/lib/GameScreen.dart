@@ -12,9 +12,7 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "Contador de clics",
-        home: MiClase());
+        debugShowCheckedModeBanner: false, title: "Tapper", home: MiClase());
   }
 }
 
@@ -26,6 +24,8 @@ class MiClase extends StatefulWidget {
 }
 
 class _MiClase extends State<MiClase> {
+  int score = 0;
+
 //https://www.flutterbeads.com/flutter-countdown-timer/#How-to-Add-Flutter-Countdown-Timer
   Timer? countdownTimer;
   Duration myDuration = const Duration(seconds: 10);
@@ -52,8 +52,6 @@ class _MiClase extends State<MiClase> {
         Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
   }
 
-  void setCountDown() {}
-
   /// This function stops the timer
   void stopTimer() {
     setState(() => countdownTimer!.cancel());
@@ -65,36 +63,99 @@ class _MiClase extends State<MiClase> {
     setState(() => myDuration = const Duration(seconds: 10));
   }
 
+  void setCountDown() {
+    const reduceSecondsBy = 1;
+    setState(() {
+      final seconds = myDuration.inSeconds - reduceSecondsBy;
+      if (seconds < 0) {
+        countdownTimer!.cancel();
+      } else {
+        myDuration = Duration(seconds: seconds);
+      }
+    });
+  }
+
+  /// This method incrementates the puntuation
+  void incrementScore() {
+    score++;
+  }
+
+  /// This method resets the puntuation
+  void resetScore() {
+    score = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
+    //Makes the window fullscreen
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     //Makes the window not rotable
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
+    final time = (myDuration.inSeconds.remainder(60));
+    startTimer();
     return Scaffold(
         body: Align(
           //Aligns every element to the top-center of the window
           alignment: Alignment.topCenter,
           child: Column(
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.96,
-                margin: const EdgeInsets.only(left: 25, right: 25),
-                child: ElevatedButton.icon(
-                  icon: const Icon(Icons.pause, color: Colors.grey),
-                  label: const Text(
-                    'Pause',
-                    style: TextStyle(fontFamily: 'SansSerif'),
+              Row(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.025)),
+                  Column(
+                    children: [
+                      const Text(
+                        'Time',
+                        style: TextStyle(fontFamily: 'SansSerif'),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.025)),
+                      Text(
+                        '$time',
+                        style: const TextStyle(fontFamily: 'SansSerif'),
+                      )
+                    ],
                   ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.15,
+                    width: MediaQuery.of(context).size.width * 0.82,
+                    margin: const EdgeInsets.only(left: 15, right: 15),
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.pause, color: Colors.grey),
+                      label: const Text(
+                        'Pause',
+                        style: TextStyle(fontFamily: 'SansSerif'),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
+                      onPressed: () {
+                        stopTimer();
+                      },
+                    ),
                   ),
-                  onPressed: () {
-                    //stopTimer();
-                  },
-                ),
+                  Column(
+                    children: [
+                      const Text(
+                        'Score',
+                        style: TextStyle(fontFamily: 'SansSerif'),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.025)),
+                      Text(
+                        '$score',
+                        style: const TextStyle(fontFamily: 'SansSerif'),
+                      )
+                    ],
+                  )
+                ],
               ),
               Container(
                 //The container style:
@@ -126,12 +187,6 @@ class _MiClase extends State<MiClase> {
                 child: Column(
                   //All the container elements one above other in a column
                   children: [
-                    /*SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.width * 0.15,
-                      child: FloatingActionButton(
-                          backgroundColor: Colors.amberAccent, onPressed: () {}),
-                    ),*/
                     Positioned(
                         //https://stackoverflow.com/questions/49566752/flutter-position-fixed-equivalent
                         left: x,
@@ -146,6 +201,7 @@ class _MiClase extends State<MiClase> {
                             onPressed: () {
                               x = changeX();
                               y = changeY();
+                              incrementScore();
                             }))
                   ], //End of container/column-elements
                 ),

@@ -28,28 +28,26 @@ class _MiClase extends State<MiClase> {
   static int score = 0;
 
   /// Original possition of the first circle
-  double x = 0;
-  double y = 0;
   Random random = Random();
+  double x = 350;
+  double y = 100;
 
   /// This function changes the x coordinate
-  double changeX() {
-    return random.nextDouble() * random.nextInt(100);
+  void changeX() {
+    if (!stopped) {
+      x = random.nextDouble() * ((MediaQuery.of(context).size.width) * 0.75);
+    }
   }
 
   /// This function changes the y coordinate
-  double changeY() {
-    return random.nextDouble() * random.nextInt(100);
+  void changeY() {
+    if (!stopped) {
+      y = random.nextDouble() * ((MediaQuery.of(context).size.height) * 0.75);
+    }
   }
 
   String controllButton = 'Pause';
   IconData icon = Icons.pause;
-  Alignment alignment = Alignment.center;
-  List<Alignment> alignments = [
-    Alignment.centerLeft,
-    Alignment.center,
-    Alignment.centerRight
-  ];
 
   //https://www.flutterbeads.com/flutter-countdown-timer/#How-to-Add-Flutter-Countdown-Timer
   Timer? countdownTimer;
@@ -100,7 +98,6 @@ class _MiClase extends State<MiClase> {
   void incrementScore() {
     if (!stopped) {
       score++;
-      alignment = alignments[random.nextInt(3)];
     }
   }
 
@@ -226,54 +223,51 @@ class _MiClase extends State<MiClase> {
                 ],
               ),
               Container(
-                //The container style:
-                alignment: alignment,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFFFF422C),
-                      Color(0xFFFF9003),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.25, 0.90],
-                  ),
-                  // ignore: prefer_const_literals_to_create_immutables
-                  boxShadow: [
-                    const BoxShadow(
-                      color: Color(0xFF101012),
-                      offset: Offset(-12, 12),
-                      blurRadius: 8,
+                  //The container style:
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFFFF422C),
+                        Color(0xFFFF9003),
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.25, 0.90],
                     ),
-                  ],
-                ), //End of container style
-                margin: const EdgeInsets.only(left: 25, right: 25),
-                height: MediaQuery.of(context).size.height * 0.82,
-                width: MediaQuery.of(context).size.width * 1,
-                child: Column(
-                  //All the container elements one above other in a column
-                  children: [
-                    Positioned(
-                        //https://stackoverflow.com/questions/49566752/flutter-position-fixed-equivalent
-                        left: x,
-                        top: y,
-                        child: FloatingActionButton(
-                            backgroundColor: Colors.amberAccent,
-                            child: const Icon(
-                              Icons.circle,
-                              size: 35,
-                              color: Colors.yellowAccent,
-                            ),
-                            onPressed: () {
-                              x = changeX();
-                              y = changeY();
-                              incrementScore();
-                              setState(() {});
-                            }))
-                  ], //End of container/column-elements
-                ),
-              ),
+                    // ignore: prefer_const_literals_to_create_immutables
+                    boxShadow: [
+                      const BoxShadow(
+                        color: Color(0xFF101012),
+                        offset: Offset(-12, 12),
+                        blurRadius: 8,
+                      ),
+                    ],
+                  ), //End of container style
+                  margin: const EdgeInsets.only(left: 25, right: 25),
+                  height: MediaQuery.of(context).size.height * 0.82,
+                  width: MediaQuery.of(context).size.width * 1,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                          //https://stackoverflow.com/questions/49566752/flutter-position-fixed-equivalent
+                          left: x,
+                          top: y,
+                          child: FloatingActionButton(
+                              backgroundColor: Colors.amberAccent,
+                              child: const Icon(
+                                Icons.circle,
+                                size: 35,
+                                color: Colors.yellowAccent,
+                              ),
+                              onPressed: () {
+                                changeX();
+                                changeY();
+                                incrementScore();
+                                setState(() {});
+                              }))
+                    ],
+                  )),
             ],
           ), //End of the big orange container
         ),

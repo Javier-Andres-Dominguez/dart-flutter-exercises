@@ -29,8 +29,8 @@ class _MiClase extends State<MiClase> {
 
   /// Original possition of the first circle
   Random random = Random();
-  double x = 350;
-  double y = 100;
+  double x = Random().nextDouble() * 350;
+  double y = Random().nextDouble() * 100;
 
   /// This function changes the x coordinate
   void changeX() {

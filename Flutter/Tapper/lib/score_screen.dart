@@ -8,15 +8,11 @@ import 'main.dart';
 
 void main() => runApp(ScoreScreen());
 
-int bestScore = 0;
 int score = MyApp.puntuation;
 
-Future<void> checkScore() async {
+Future<void> saveScore() async {
   final prefs = await SharedPreferences.getInstance();
-  if ((prefs.getInt('bestScore') ?? 0) < score) {
-    prefs.setInt('bestScore', score);
-  }
-  bestScore = prefs.getInt('bestScore') ?? 0;
+  prefs.setInt('bestScore', score);
 }
 
 class ScoreScreen extends StatelessWidget {
@@ -31,8 +27,12 @@ class ScoreScreen extends StatelessWidget {
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
-    int score = MyApp.puntuation;
-    checkScore();
+    score = MyApp.puntuation;
+    if (score > MyApp.best) {
+      MyApp.best = score;
+      saveScore();
+    }
+    int bestScore = MyApp.best;
     return Scaffold(
         body: Align(
           //Aligns every element to the top-center of the window

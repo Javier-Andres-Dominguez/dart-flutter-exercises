@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'game_screen.dart';
 import 'main.dart';
 
 void main() => runApp(ScoreScreen());
@@ -18,18 +19,6 @@ Future<void> checkScore() async {
   bestScore = prefs.getInt('bestScore') ?? 0;
 }
 
-/*Future<void> getScore() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.setInt("bestScore", bestScore);
-}
-
-loadScore() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  setState(() {
-    bestScore = prefs.getInt("bestScore") ?? 0;
-  });
-}*/
-
 class ScoreScreen extends StatelessWidget {
   const ScoreScreen({super.key});
 
@@ -42,6 +31,8 @@ class ScoreScreen extends StatelessWidget {
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
+    int score = MyApp.puntuation;
+    checkScore();
     return Scaffold(
         body: Align(
           //Aligns every element to the top-center of the window
@@ -116,7 +107,9 @@ class ScoreScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.5,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "GameScreen");
+                      //Navigator.pushNamed(context, "GameScreen");
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => GameScreen()));
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),

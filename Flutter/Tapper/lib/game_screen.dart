@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/score_screen.dart';
 
 import 'main.dart';
 
@@ -25,8 +26,6 @@ class MiClase extends StatefulWidget {
 }
 
 class _MiClase extends State<MiClase> {
-  static int score = 0;
-
   /// Original possition of the first circle
   Random random = Random();
   double x = Random().nextDouble() * 350;
@@ -54,6 +53,8 @@ class _MiClase extends State<MiClase> {
   Duration myDuration = const Duration(seconds: 10);
   bool started = false;
   bool stopped = false;
+  bool ended = false;
+  static int score = 0;
 
   /// This function starts the countdown
   void startTimer() {
@@ -63,12 +64,12 @@ class _MiClase extends State<MiClase> {
 
   /// This function stops the timer
   void stopTimer() {
-    if (!stopped) {
+    if (!stopped && !ended) {
       setState(() => countdownTimer!.cancel());
       stopped = true;
       controllButton = 'Play';
       icon = Icons.play_arrow;
-    } else {
+    } else if (stopped && !ended) {
       startTimer();
       stopped = false;
       controllButton = 'Pause';
@@ -80,16 +81,17 @@ class _MiClase extends State<MiClase> {
     const reduceSecondsBy = 1;
     setState(() {
       final time = myDuration.inSeconds - reduceSecondsBy;
+      myDuration = Duration(seconds: time);
       if (time <= 0) {
         stopped = true;
+        ended = true;
         myDuration = Duration(seconds: time);
         countdownTimer!.cancel();
         MyApp.puntuation = score;
         //Go to the next view
-        //Navigator.pushNamed(context, "ScoreScreen");
-        //Navigator.pop(context);
-      } else {
-        myDuration = Duration(seconds: time);
+        //https://www.youtube.com/watch?v=l3KnuUmlr-w&ab_channel=HeyFlutter%E2%80%A4com
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => ScoreScreen()));
       }
     });
   }
@@ -105,6 +107,7 @@ class _MiClase extends State<MiClase> {
   void checkTimer() {
     if (!started) {
       startTimer();
+      score = 0;
       started = true;
     }
   }
